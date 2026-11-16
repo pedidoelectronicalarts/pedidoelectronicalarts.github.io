@@ -1,5 +1,5 @@
 // Service worker: la app abre rapido y sigue mostrando el catalogo sin conexion
-const V='ea-202611161933';
+const V='ea-202611161951';
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(V).then(c=>c.addAll(['./','./manifest.webmanifest','./icon-192.png'])))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{
